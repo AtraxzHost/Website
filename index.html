@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,62 +8,70 @@
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to bottom right, #000000, #003300);
-      font-family: monospace;
-      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: black;
+      color: lime;
       text-align: center;
-      padding: 20px;
     }
     .container {
-      border: 2px solid #00ff00;
-      border-radius: 15px;
-      padding: 20px;
-      background-color: #000;
-      box-shadow: 0 0 20px #00ff00;
+      padding: 50px 20px;
     }
     h1 {
-      color: #00ff00;
-      font-size: 24px;
+      font-size: 28px;
+      text-shadow: 0 0 10px lime;
+      color: lime;
+    }
+    .glow-box {
+      border: 2px solid lime;
+      padding: 20px;
+      margin: 40px auto;
+      max-width: 600px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px lime;
+    }
+    p {
+      color: lime;
+      font-size: 16px;
     }
     .button {
-      display: block;
-      width: 200px;
-      margin: 20px auto;
-      padding: 15px;
-      background-color: #111;
-      color: #00ff00;
-      border: 2px solid #00ff00;
+      background-color: black;
+      border: 2px solid lime;
+      color: lime;
+      padding: 15px 30px;
+      margin: 15px;
       border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .button:hover {
-      background-color: #003300;
-    }
-    footer {
-      margin-top: 30px;
-      font-size: 14px;
-    }
-    .red-box {
+      text-shadow: 0 0 5px lime;
+      box-shadow: 0 0 10px lime;
+      cursor: pointer;
       display: inline-block;
-      margin-top: 10px;
-      padding: 5px 10px;
-      background: red;
-      color: white;
-      border-radius: 5px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: lime;
+    }
+    .footer a {
+      color: red;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>BOCIL KEMATIAN V1 VERSI FREE</h1>
-    <p>Langsung bergabung di group, untuk info terbaru APK</p>
-    <a href="#" class="button">MENU</a>
-    <a href="#" class="button">BOCIL SYSTEM</a>
-    <footer>
-      <p>© 2025 BOCIL KEMATIAN</p>
-      <div class="red-box">WWW.BLACKHUNTER.MY.ID</div>
-    </footer>
+    <div class="glow-box">
+      <h1>BOCIL KEMATIAN V1 VERSI FREE</h1>
+      <p>Langsung bergabung di group, untuk info terbaru APK</p>
+      <div>
+        <div class="button">MENU</div>
+        <div class="button">BOCIL SYSTEM</div>
+      </div>
+    </div>
+    <div class="footer">
+      © 2025 BOCIL KEMATIAN<br />
+      <a href="https://www.blackhunter.my.id" target="_blank">www.blackhunter.my.id</a>
+    </div>
   </div>
 </body>
 </html>
