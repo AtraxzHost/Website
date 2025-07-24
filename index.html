@@ -8,22 +8,22 @@
     body {
       margin: 0;
       font-family: 'Courier New', monospace;
-      background: linear-gradient(to bottom, #000000, #002200);
-      color: #00ff00;
+      background: linear-gradient(to bottom, #000000, #220000);
+      color: #ff0000;
       text-align: center;
     }
     .container {
       padding: 20px;
-      border: 2px solid #00ff00;
+      border: 2px solid #ff0000;
       margin: 30px;
       border-radius: 20px;
-      box-shadow: 0 0 15px #00ff00;
+      box-shadow: 0 0 15px #ff0000;
       background-color: #000000;
     }
     h1 {
       font-size: 24px;
-      color: #00ff00;
-      text-shadow: 0 0 10px #00ff00;
+      color: #ff0000;
+      text-shadow: 0 0 10px #ff0000;
     }
     .btn {
       display: block;
@@ -34,11 +34,11 @@
       border: none;
       border-radius: 10px;
       font-weight: bold;
-      box-shadow: 0 0 10px #00ff00;
+      box-shadow: 0 0 10px #ff0000;
       cursor: pointer;
     }
     .menu-btn {
-      background-color: #00ff00;
+      background-color: #ff0000;
       color: #000;
     }
     .bug-btn {
@@ -65,33 +65,29 @@
       padding: 10px;
       margin: 10px auto;
       background: #111;
-      color: #00ff00;
-      border: 1px solid #00ff00;
+      color: #ff0000;
+      border: 1px solid #ff0000;
       border-radius: 8px;
     }
     .whatsapp-link {
       display: inline-block;
       text-decoration: none;
       color: black;
-      background: #00ff00;
+      background: #ff0000;
       padding: 10px 20px;
       border-radius: 10px;
       font-weight: bold;
       margin-top: 10px;
-    }
-    .panel-label {
-      color: #888;
-      font-size: 14px;
-      margin-top: 10px;
+      box-shadow: 0 0 10px #ff0000;
     }
     .green-box {
-      background: #001100;
-      border: 1px solid #00ff00;
+      background: #220000;
+      border: 1px solid #ff0000;
       padding: 10px;
       margin: 10px auto;
       border-radius: 10px;
       width: 80%;
-      color: #00ff00;
+      color: #ff0000;
       font-weight: bold;
     }
     .orange-btn {
@@ -108,59 +104,68 @@
 </head>
 <body>
 
-  <div class="container">
-    <h1>BOCIL KEMATIAN V1 VERSI FREE</h1>
-    <marquee scrollamount="4">✨ BERGABUNG DI GROUP, UNTUK INFO TERBARU APK BOCIL ✨</marquee>
+  <!-- LOGIN AWAL AKSES WEBSITE -->
+  <div id="access-login" class="container">
+    <h1>LOGIN AKSES WEBSITE</h1>
+    <input type="text" id="accessUser" placeholder="Username" />
+    <input type="password" id="accessPass" placeholder="Password" />
+    <button class="btn menu-btn" onclick="checkAccess()">MASUK WEBSITE</button>
+  </div>
 
-    <button class="btn menu-btn" onclick="toggleMenu()">MENU</button>
+  <!-- KONTEN UTAMA -->
+  <div id="main-content" style="display:none">
+    <div class="container">
+      <h1>BOCIL KEMATIAN V1 VERSI FREE</h1>
+      <marquee scrollamount="4">✨ BERGABUNG DI GROUP, UNTUK INFO TERBARU APK BOCIL ✨</marquee>
 
-    <div id="menu-options" style="display:none;">
-      <button class="btn bug-btn" onclick="showForm('blank')">BUG BLANK</button>
-      <button class="btn bug-btn" onclick="showForm('invis')">BUG INVIS</button>
-      <button class="btn menu-btn" onclick="showLogin()">BOCIL SYSTEM</button>
-    </div>
+      <button class="btn menu-btn" onclick="toggleMenu()">MENU</button>
 
-    <div id="form-blank" class="form-section">
-      <h2>BUG BLANK</h2>
-      <input id="blankNumber" type="text" placeholder="Masukkan Number Target" />
-      <br>
-      <a id="blankSend" href="#" class="whatsapp-link" target="_blank">KIRIM KE WHATSAPP</a>
-      <br>
-      <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
-    </div>
+      <div id="menu-options" style="display:none;">
+        <button class="btn bug-btn" onclick="showForm('blank')">BUG BLANK</button>
+        <button class="btn bug-btn" onclick="showForm('invis')">BUG INVIS</button>
+        <button class="btn menu-btn" onclick="showLogin()">BOCIL SYSTEM</button>
+      </div>
 
-    <div id="form-invis" class="form-section">
-      <h2>BUG INVIS</h2>
-      <input id="invisNumber" type="text" placeholder="Masukkan Number Target" />
-      <br>
-      <a id="invisSend" href="#" class="whatsapp-link" target="_blank">KIRIM KE WHATSAPP</a>
-      <br>
-      <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
-    </div>
+      <div id="form-blank" class="form-section">
+        <h2>BUG BLANK</h2>
+        <input id="blankNumber" type="text" placeholder="Masukkan Number Target" />
+        <br>
+        <a id="blankSend" href="#" class="whatsapp-link" target="_blank">KIRIM KE WHATSAPP</a>
+        <br>
+        <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
+      </div>
 
-    <!-- LOGIN -->
-    <div id="login-section" class="form-section">
-      <h2>LOGIN BOCIL SYSTEM</h2>
-      <input type="text" id="username" placeholder="Username" />
-      <input type="password" id="password" placeholder="Password" />
-      <br />
-      <button class="btn menu-btn" onclick="login()">LOGIN</button>
-      <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
-    </div>
+      <div id="form-invis" class="form-section">
+        <h2>BUG INVIS</h2>
+        <input id="invisNumber" type="text" placeholder="Masukkan Number Target" />
+        <br>
+        <a id="invisSend" href="#" class="whatsapp-link" target="_blank">KIRIM KE WHATSAPP</a>
+        <br>
+        <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
+      </div>
 
-    <!-- PANEL SETELAH LOGIN -->
-    <div id="bocil-system" class="form-section">
-      <h2>BOCIL SYSTEM PANEL</h2>
-      <div class="panel-label">Number WhatsApp Saat Ini:</div>
-      <div class="green-box" id="current-number">6283890705242</div>
-      <input type="text" id="newNumber" placeholder="Masukkan Number WhatsApp Baru" />
-      <button class="btn orange-btn" onclick="saveNumber()">SIMPAN NUMBER</button>
-      <button class="btn red-btn" onclick="logout()">LOGOUT</button>
-    </div>
+      <div id="login-section" class="form-section">
+        <h2>LOGIN BOCIL SYSTEM</h2>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="password" id="password" placeholder="Password" />
+        <br />
+        <button class="btn menu-btn" onclick="login()">LOGIN</button>
+        <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
+      </div>
 
-    <div class="footer">
-      © 2025 BOCIL KEMATIAN<br>
-      <span style="color:red;">WWW.BLACKHUNTER.MY.ID</span>
+      <div id="bocil-system" class="form-section">
+        <h2>BOCIL SYSTEM PANEL</h2>
+        <div>Number WhatsApp Saat Ini:</div>
+        <div class="green-box" id="current-number">6283890705242</div>
+        <input type="text" id="newNumber" placeholder="Masukkan Number WhatsApp Baru" />
+        <button class="btn orange-btn" onclick="saveNumber()">SIMPAN NUMBER</button>
+        <button class="btn red-btn" onclick="logout()">LOGOUT</button>
+      </div>
+
+      <div class="footer">
+        © 2025 BOCIL KEMATIAN<br>
+        <span style="color:red;">WWW.BLACKHUNTER.MY.ID</span>
+      </div>
     </div>
   </div>
 
@@ -169,6 +174,17 @@
 
     function updateNumberDisplay() {
       document.getElementById("current-number").innerText = nomorTujuan;
+    }
+
+    function checkAccess() {
+      const u = document.getElementById("accessUser").value.trim();
+      const p = document.getElementById("accessPass").value.trim();
+      if (u === "TraxzBugV1" && p === "Version Free") {
+        document.getElementById("access-login").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      } else {
+        alert("Username atau Password salah!");
+      }
     }
 
     function toggleMenu() {
@@ -243,7 +259,6 @@
       this.href = `https://wa.me/${nomorTujuan}?text=.traxz%20${number}`;
     });
 
-    // Inisialisasi saat load
     updateNumberDisplay();
   </script>
 </body>
