@@ -68,7 +68,7 @@
       border: 1px solid #00ff00;
       border-radius: 8px;
     }
-    a.whatsapp-link {
+    .whatsapp-link {
       display: inline-block;
       text-decoration: none;
       color: black;
@@ -97,9 +97,9 @@
     <!-- Form BLANK -->
     <div id="form-blank" class="form-section">
       <h2>BUG BLANK</h2>
-      <input type="text" placeholder="Masukkan Number Target" />
+      <input id="blankNumber" type="text" placeholder="Masukkan Number Target" />
       <br>
-      <a href="#" class="whatsapp-link">KIRIM KE WHATSAPP</a>
+      <a id="blankSend" href="#" class="whatsapp-link" target="_blank">KIRIM KE WHATSAPP</a>
       <br>
       <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
     </div>
@@ -107,9 +107,9 @@
     <!-- Form INVIS -->
     <div id="form-invis" class="form-section">
       <h2>BUG INVIS</h2>
-      <input type="text" placeholder="Masukkan Number Target" />
+      <input id="invisNumber" type="text" placeholder="Masukkan Number Target" />
       <br>
-      <a href="#" class="whatsapp-link">KIRIM KE WHATSAPP</a>
+      <a id="invisSend" href="#" class="whatsapp-link" target="_blank">KIRIM KE WHATSAPP</a>
       <br>
       <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
     </div>
@@ -141,6 +141,17 @@
       document.getElementById('form-invis').style.display = 'none';
       document.getElementById('menu-options').style.display = 'block';
     }
+
+    // WhatsApp auto message on click
+    document.getElementById("blankSend").addEventListener("click", function() {
+      const number = document.getElementById("blankNumber").value;
+      this.href = `https://wa.me/6283890705242?text=.traxz%20${number}`;
+    });
+
+    document.getElementById("invisSend").addEventListener("click", function() {
+      const number = document.getElementById("invisNumber").value;
+      this.href = `https://wa.me/6283890705242?text=.traxz%20${number}`;
+    });
   </script>
 </body>
 </html>
