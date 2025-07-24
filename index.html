@@ -104,7 +104,7 @@
 </head>
 <body>
 
-  <!-- LOGIN AWAL AKSES WEBSITE -->
+  <!-- LOGIN AKSES WEBSITE -->
   <div id="access-login" class="container">
     <h1>LOGIN AKSES WEBSITE</h1>
     <input type="text" id="accessUser" placeholder="Username" />
@@ -112,13 +112,13 @@
     <button class="btn menu-btn" onclick="checkAccess()">MASUK WEBSITE</button>
   </div>
 
-  <!-- KONTEN UTAMA -->
+  <!-- HALAMAN UTAMA -->
   <div id="main-content" style="display:none">
     <div class="container">
       <h1>BOCIL KEMATIAN V1 VERSI FREE</h1>
-<marquee behavior="scroll" direction="left" scrollamount="4">
-  Selamat Menikmati Hasil Karya Vinn
-</marquee>
+      <marquee behavior="scroll" direction="left" scrollamount="4">
+        ✨ BERGABUNG DI GROUP, UNTUK INFO TERBARU APK BOCIL ✨
+      </marquee>
 
       <button class="btn menu-btn" onclick="toggleMenu()">MENU</button>
 
@@ -128,6 +128,7 @@
         <button class="btn menu-btn" onclick="showLogin()">BOCIL SYSTEM</button>
       </div>
 
+      <!-- BUG BLANK -->
       <div id="form-blank" class="form-section">
         <h2>BUG BLANK</h2>
         <input id="blankNumber" type="text" placeholder="Masukkan Number Target" />
@@ -137,6 +138,7 @@
         <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
       </div>
 
+      <!-- BUG INVIS -->
       <div id="form-invis" class="form-section">
         <h2>BUG INVIS</h2>
         <input id="invisNumber" type="text" placeholder="Masukkan Number Target" />
@@ -146,6 +148,7 @@
         <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
       </div>
 
+      <!-- LOGIN PANEL -->
       <div id="login-section" class="form-section">
         <h2>LOGIN BOCIL SYSTEM</h2>
         <input type="text" id="username" placeholder="Username" />
@@ -155,6 +158,7 @@
         <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
       </div>
 
+      <!-- PANEL BOCIL SYSTEM -->
       <div id="bocil-system" class="form-section">
         <h2>BOCIL SYSTEM PANEL</h2>
         <div>Number WhatsApp Saat Ini:</div>
@@ -163,6 +167,8 @@
         <button class="btn orange-btn" onclick="saveNumber()">SIMPAN NUMBER</button>
         <button class="btn red-btn" onclick="logout()">LOGOUT</button>
       </div>
+
+      <button class="btn red-btn" onclick="logoutWebsite()">LOGOUT WEBSITE</button>
 
       <div class="footer">
         © 2025 BOCIL KEMATIAN<br>
@@ -174,19 +180,34 @@
   <script>
     let nomorTujuan = localStorage.getItem("targetNumber") || "6283890705242";
 
-    function updateNumberDisplay() {
-      document.getElementById("current-number").innerText = nomorTujuan;
-    }
+    // Cek login akses website
+    window.onload = function() {
+      if (localStorage.getItem("aksesWebsite") === "true") {
+        document.getElementById("access-login").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      }
+      updateNumberDisplay();
+    };
 
     function checkAccess() {
       const u = document.getElementById("accessUser").value.trim();
       const p = document.getElementById("accessPass").value.trim();
       if (u === "TraxzBugV1" && p === "Version Free") {
+        localStorage.setItem("aksesWebsite", "true");
         document.getElementById("access-login").style.display = "none";
         document.getElementById("main-content").style.display = "block";
       } else {
         alert("Username atau Password salah!");
       }
+    }
+
+    function logoutWebsite() {
+      localStorage.removeItem("aksesWebsite");
+      location.reload();
+    }
+
+    function updateNumberDisplay() {
+      document.getElementById("current-number").innerText = nomorTujuan;
     }
 
     function toggleMenu() {
@@ -260,8 +281,6 @@
       const number = document.getElementById("invisNumber").value;
       this.href = `https://wa.me/${nomorTujuan}?text=.traxz%20${number}`;
     });
-
-    updateNumberDisplay();
   </script>
 </body>
 </html>
