@@ -79,6 +79,31 @@
       font-weight: bold;
       margin-top: 10px;
     }
+    .panel-label {
+      color: #888;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .green-box {
+      background: #001100;
+      border: 1px solid #00ff00;
+      padding: 10px;
+      margin: 10px auto;
+      border-radius: 10px;
+      width: 80%;
+      color: #00ff00;
+      font-weight: bold;
+    }
+    .orange-btn {
+      background-color: orange;
+      color: black;
+      box-shadow: 0 0 10px orange;
+    }
+    .red-btn {
+      background-color: red;
+      color: white;
+      box-shadow: 0 0 10px red;
+    }
   </style>
 </head>
 <body>
@@ -95,7 +120,6 @@
       <button class="btn menu-btn" onclick="showLogin()">BOCIL SYSTEM</button>
     </div>
 
-    <!-- BUG BLANK -->
     <div id="form-blank" class="form-section">
       <h2>BUG BLANK</h2>
       <input id="blankNumber" type="text" placeholder="Masukkan Number Target" />
@@ -105,7 +129,6 @@
       <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
     </div>
 
-    <!-- BUG INVIS -->
     <div id="form-invis" class="form-section">
       <h2>BUG INVIS</h2>
       <input id="invisNumber" type="text" placeholder="Masukkan Number Target" />
@@ -115,7 +138,7 @@
       <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
     </div>
 
-    <!-- LOGIN BOCIL SYSTEM -->
+    <!-- LOGIN -->
     <div id="login-section" class="form-section">
       <h2>LOGIN BOCIL SYSTEM</h2>
       <input type="text" id="username" placeholder="Username" />
@@ -125,11 +148,14 @@
       <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
     </div>
 
-    <!-- BOCIL SYSTEM CONTENT -->
+    <!-- PANEL SETELAH LOGIN -->
     <div id="bocil-system" class="form-section">
-      <h2>🔥 SELAMAT DATANG DI BOCIL SYSTEM 🔥</h2>
-      <p>Fitur rahasia aktif! Silakan lanjutkan operasimu 😎</p>
-      <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
+      <h2>BOCIL SYSTEM PANEL</h2>
+      <div class="panel-label">Number WhatsApp Saat Ini:</div>
+      <div class="green-box" id="current-number">6283890705242</div>
+      <input type="text" id="newNumber" placeholder="Masukkan Number WhatsApp Baru" />
+      <button class="btn orange-btn" onclick="saveNumber()">SIMPAN NUMBER</button>
+      <button class="btn red-btn" onclick="logout()">LOGOUT</button>
     </div>
 
     <div class="footer">
@@ -139,6 +165,12 @@
   </div>
 
   <script>
+    let nomorTujuan = localStorage.getItem("targetNumber") || "6283890705242";
+
+    function updateNumberDisplay() {
+      document.getElementById("current-number").innerText = nomorTujuan;
+    }
+
     function toggleMenu() {
       document.getElementById('menu-options').style.display = 'block';
       document.getElementById('form-blank').style.display = 'none';
@@ -177,24 +209,42 @@
     function login() {
       const user = document.getElementById("username").value.trim();
       const pass = document.getElementById("password").value.trim();
-
       if (user === "VinnDev" && pass === "Vinn123") {
         document.getElementById('login-section').style.display = 'none';
         document.getElementById('bocil-system').style.display = 'block';
+        updateNumberDisplay();
       } else {
         alert("Username atau Password salah!");
       }
     }
 
+    function saveNumber() {
+      const newNum = document.getElementById("newNumber").value.trim();
+      if (newNum !== "") {
+        nomorTujuan = newNum;
+        localStorage.setItem("targetNumber", nomorTujuan);
+        updateNumberDisplay();
+        alert("Nomor berhasil disimpan!");
+      }
+    }
+
+    function logout() {
+      document.getElementById("bocil-system").style.display = "none";
+      document.getElementById("login-section").style.display = "block";
+    }
+
     document.getElementById("blankSend").addEventListener("click", function() {
       const number = document.getElementById("blankNumber").value;
-      this.href = `https://wa.me/6283890705242?text=.traxz2%20${number}`;
+      this.href = `https://wa.me/${nomorTujuan}?text=.traxz2%20${number}`;
     });
 
     document.getElementById("invisSend").addEventListener("click", function() {
       const number = document.getElementById("invisNumber").value;
-      this.href = `https://wa.me/6283890705242?text=.traxz%20${number}`;
+      this.href = `https://wa.me/${nomorTujuan}?text=.traxz%20${number}`;
     });
+
+    // Inisialisasi saat load
+    updateNumberDisplay();
   </script>
 </body>
 </html>
