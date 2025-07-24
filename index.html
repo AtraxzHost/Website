@@ -1,77 +1,146 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bocil Kematian V1</title>
+  <title>Traxz Crasher - Free Version</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Courier New', Courier, monospace;
-      background-color: black;
-      color: lime;
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(to bottom, #000000, #002200);
+      color: #00ff00;
       text-align: center;
     }
     .container {
-      padding: 50px 20px;
+      padding: 20px;
+      border: 2px solid #00ff00;
+      margin: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #00ff00;
+      background-color: #000000;
     }
     h1 {
-      font-size: 28px;
-      text-shadow: 0 0 10px lime;
-      color: lime;
+      font-size: 24px;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00;
     }
-    .glow-box {
-      border: 2px solid lime;
-      padding: 20px;
-      margin: 40px auto;
-      max-width: 600px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px lime;
-    }
-    p {
-      color: lime;
+    .btn {
+      display: block;
+      width: 70%;
+      margin: 10px auto;
+      padding: 15px;
       font-size: 16px;
-    }
-    .button {
-      background-color: black;
-      border: 2px solid lime;
-      color: lime;
-      padding: 15px 30px;
-      margin: 15px;
+      border: none;
       border-radius: 10px;
-      text-shadow: 0 0 5px lime;
-      box-shadow: 0 0 10px lime;
-      cursor: pointer;
-      display: inline-block;
       font-weight: bold;
-      text-transform: uppercase;
+      box-shadow: 0 0 10px #00ff00;
+      cursor: pointer;
+    }
+    .menu-btn {
+      background-color: #00ff00;
+      color: #000;
+    }
+    .bug-btn {
+      background-color: #111;
+      color: red;
+      border: 2px solid red;
+    }
+    .back-btn {
+      background-color: #000;
+      color: white;
+      border: 1px solid #fff;
     }
     .footer {
-      margin-top: 50px;
+      margin-top: 40px;
       font-size: 14px;
-      color: lime;
     }
-    .footer a {
-      color: red;
+    .form-section {
+      display: none;
+      margin-top: 20px;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px auto;
+      background: #111;
+      color: #00ff00;
+      border: 1px solid #00ff00;
+      border-radius: 8px;
+    }
+    a.whatsapp-link {
+      display: inline-block;
       text-decoration: none;
+      color: black;
+      background: #00ff00;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <div class="glow-box">
-      <h1>BOCIL KEMATIAN V1 VERSI FREE</h1>
-      <p>Langsung bergabung di group, untuk info terbaru APK</p>
-      <div>
-        <div class="button">MENU</div>
-        <div class="button">BOCIL SYSTEM</div>
-      </div>
+    <h1>BOCIL KEMATIAN V1 VERSI FREE</h1>
+    <marquee scrollamount="4">✨ BERGABUNG DI GROUP, UNTUK INFO TERBARU APK BOCIL ✨</marquee>
+
+    <button class="btn menu-btn" onclick="toggleMenu()">MENU</button>
+
+    <div id="menu-options" style="display:none;">
+      <button class="btn bug-btn" onclick="showForm('blank')">BUG BLANK</button>
+      <button class="btn bug-btn" onclick="showForm('invis')">BUG INVIS</button>
+      <button class="btn menu-btn">BOCIL SYSTEM</button>
     </div>
+
+    <!-- Form BLANK -->
+    <div id="form-blank" class="form-section">
+      <h2>BUG BLANK</h2>
+      <input type="text" placeholder="Masukkan Number Target" />
+      <br>
+      <a href="#" class="whatsapp-link">KIRIM KE WHATSAPP</a>
+      <br>
+      <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
+    </div>
+
+    <!-- Form INVIS -->
+    <div id="form-invis" class="form-section">
+      <h2>BUG INVIS</h2>
+      <input type="text" placeholder="Masukkan Number Target" />
+      <br>
+      <a href="#" class="whatsapp-link">KIRIM KE WHATSAPP</a>
+      <br>
+      <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
+    </div>
+
     <div class="footer">
-      © 2025 BOCIL KEMATIAN<br />
-      <a href="https://www.blackhunter.my.id" target="_blank">www.blackhunter.my.id</a>
+      © 2025 BOCIL KEMATIAN<br>
+      <span style="color:red;">WWW.BLACKHUNTER.MY.ID</span>
     </div>
   </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu-options').style.display = 'block';
+      document.getElementById('form-blank').style.display = 'none';
+      document.getElementById('form-invis').style.display = 'none';
+    }
+
+    function showForm(type) {
+      document.getElementById('menu-options').style.display = 'none';
+      if (type === 'blank') {
+        document.getElementById('form-blank').style.display = 'block';
+      } else {
+        document.getElementById('form-invis').style.display = 'block';
+      }
+    }
+
+    function goBack() {
+      document.getElementById('form-blank').style.display = 'none';
+      document.getElementById('form-invis').style.display = 'none';
+      document.getElementById('menu-options').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
