@@ -106,18 +106,18 @@
 
   <!-- LOGIN AKSES WEBSITE -->
   <div id="access-login" class="container">
-    <h1>LOGIN AKSES WEBSITE</h1>
+    <h1>LOGIN AKSES TRAXZ BUG WEB</h1>
     <input type="text" id="accessUser" placeholder="Username" />
     <input type="password" id="accessPass" placeholder="Password" />
-    <button class="btn menu-btn" onclick="checkAccess()">MASUK WEBSITE</button>
+    <button class="btn menu-btn" onclick="checkAccess()">LOGIN TO BUG</button>
   </div>
 
   <!-- HALAMAN UTAMA -->
   <div id="main-content" style="display:none">
     <div class="container">
-      <h1>BOCIL KEMATIAN V1 VERSI FREE</h1>
+      <h1>TRAXZ CRASHER V1</h1>
       <marquee behavior="scroll" direction="left" scrollamount="4">
-        ✨ BERGABUNG DI GROUP, UNTUK INFO TERBARU APK BOCIL ✨
+         Selamat Menikmati Hasil Karya Vinn
       </marquee>
 
       <button class="btn menu-btn" onclick="toggleMenu()">MENU</button>
@@ -125,7 +125,7 @@
       <div id="menu-options" style="display:none;">
         <button class="btn bug-btn" onclick="showForm('blank')">BUG BLANK</button>
         <button class="btn bug-btn" onclick="showForm('invis')">BUG INVIS</button>
-        <button class="btn menu-btn" onclick="showLogin()">BOCIL SYSTEM</button>
+        <button class="btn menu-btn" onclick="showLogin()">TRAXZ SYSTEM</button>
       </div>
 
       <!-- BUG BLANK -->
@@ -150,7 +150,7 @@
 
       <!-- LOGIN PANEL -->
       <div id="login-section" class="form-section">
-        <h2>LOGIN BOCIL SYSTEM</h2>
+        <h2>LOGIN TRAXZ SYSTEM</h2>
         <input type="text" id="username" placeholder="Username" />
         <input type="password" id="password" placeholder="Password" />
         <br />
@@ -158,9 +158,9 @@
         <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
       </div>
 
-      <!-- PANEL BOCIL SYSTEM -->
-      <div id="bocil-system" class="form-section">
-        <h2>BOCIL SYSTEM PANEL</h2>
+      <!-- AKSES TRAXZ SYSTEM -->
+      <div id="traxz-system" class="form-section">
+        <h2>TRAXZ SYSTEM AKSES</h2>
         <div>Number WhatsApp Saat Ini:</div>
         <div class="green-box" id="current-number">6283890705242</div>
         <input type="text" id="newNumber" placeholder="Masukkan Number WhatsApp Baru" />
@@ -171,8 +171,8 @@
       <button class="btn red-btn" onclick="logoutWebsite()">LOGOUT WEBSITE</button>
 
       <div class="footer">
-        © 2025 BOCIL KEMATIAN<br>
-        <span style="color:red;">WWW.BLACKHUNTER.MY.ID</span>
+        © 2025 TRAXZ CRASHER<br>
+        <span style="color:red;">WWW.VINNDEV.MY.ID</span>
       </div>
     </div>
   </div>
@@ -215,13 +215,13 @@
       document.getElementById('form-blank').style.display = 'none';
       document.getElementById('form-invis').style.display = 'none';
       document.getElementById('login-section').style.display = 'none';
-      document.getElementById('bocil-system').style.display = 'none';
+      document.getElementById('traxz-system').style.display = 'none';
     }
 
     function showForm(type) {
       document.getElementById('menu-options').style.display = 'none';
       document.getElementById('login-section').style.display = 'none';
-      document.getElementById('bocil-system').style.display = 'none';
+      document.getElementById('traxz-system').style.display = 'none';
       if (type === 'blank') {
         document.getElementById('form-blank').style.display = 'block';
       } else {
@@ -233,7 +233,7 @@
       document.getElementById('form-blank').style.display = 'none';
       document.getElementById('form-invis').style.display = 'none';
       document.getElementById('login-section').style.display = 'none';
-      document.getElementById('bocil-system').style.display = 'none';
+      document.getElementById('traxz-system').style.display = 'none';
       document.getElementById('menu-options').style.display = 'block';
     }
 
@@ -241,19 +241,19 @@
       document.getElementById('menu-options').style.display = 'none';
       document.getElementById('form-blank').style.display = 'none';
       document.getElementById('form-invis').style.display = 'none';
-      document.getElementById('bocil-system').style.display = 'none';
+      document.getElementById('traxz-system').style.display = 'none';
       document.getElementById('login-section').style.display = 'block';
     }
 
     function login() {
       const user = document.getElementById("username").value.trim();
       const pass = document.getElementById("password").value.trim();
-      if (user === "VinnDev" && pass === "Vinn123") {
+      if (user === "Akses" && pass === "123") {
         document.getElementById('login-section').style.display = 'none';
-        document.getElementById('bocil-system').style.display = 'block';
+        document.getElementById('traxz-system').style.display = 'block';
         updateNumberDisplay();
       } else {
-        alert("Username atau Password salah!");
+        alert("Salah Dongo Lu Siapa Ini Khusus Pencipta");
       }
     }
 
@@ -268,7 +268,7 @@
     }
 
     function logout() {
-      document.getElementById("bocil-system").style.display = "none";
+      document.getElementById("traxz-system").style.display = "none";
       document.getElementById("login-section").style.display = "block";
     }
 
