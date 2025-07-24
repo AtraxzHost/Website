@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -94,7 +95,6 @@
       <button class="btn menu-btn">BOCIL SYSTEM</button>
     </div>
 
-    <!-- Form BLANK -->
     <div id="form-blank" class="form-section">
       <h2>BUG BLANK</h2>
       <input id="blankNumber" type="text" placeholder="Masukkan Number Target" />
@@ -104,7 +104,6 @@
       <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
     </div>
 
-    <!-- Form INVIS -->
     <div id="form-invis" class="form-section">
       <h2>BUG INVIS</h2>
       <input id="invisNumber" type="text" placeholder="Masukkan Number Target" />
@@ -142,10 +141,9 @@
       document.getElementById('menu-options').style.display = 'block';
     }
 
-    // WhatsApp auto message on click
     document.getElementById("blankSend").addEventListener("click", function() {
       const number = document.getElementById("blankNumber").value;
-      this.href = `https://wa.me/6283890705242?text=.traxz%20${number}`;
+      this.href = `https://wa.me/6283890705242?text=.traxz2%20${number}`;
     });
 
     document.getElementById("invisSend").addEventListener("click", function() {
