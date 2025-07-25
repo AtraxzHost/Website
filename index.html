@@ -8,28 +8,23 @@
     body {
       margin: 0;
       font-family: 'Courier New', monospace;
-      background: url('logo-traxz.png') no-repeat center center fixed;
-      background-size: cover;
-      background-color: #000000;
+      background: linear-gradient(to bottom, #000000, #220000);
       color: #ff0000;
       text-align: center;
     }
-
     .container {
       padding: 20px;
       border: 2px solid #ff0000;
       margin: 30px;
       border-radius: 20px;
       box-shadow: 0 0 15px #ff0000;
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: #000000;
     }
-
     h1 {
       font-size: 24px;
       color: #ff0000;
       text-shadow: 0 0 10px #ff0000;
     }
-
     .btn {
       display: block;
       width: 70%;
@@ -42,14 +37,30 @@
       box-shadow: 0 0 10px #ff0000;
       cursor: pointer;
     }
-
-    .menu-btn { background-color: #ff0000; color: #000; }
-    .bug-btn { background-color: #111; color: red; border: 2px solid red; }
-    .back-btn { background-color: #000; color: white; border: 1px solid #fff; }
-    .footer { margin-top: 40px; font-size: 14px; }
-    .form-section { display: none; margin-top: 20px; }
-
-    input[type="text"], input[type="password"] {
+    .menu-btn {
+      background-color: #ff0000;
+      color: #000;
+    }
+    .bug-btn {
+      background-color: #111;
+      color: red;
+      border: 2px solid red;
+    }
+    .back-btn {
+      background-color: #000;
+      color: white;
+      border: 1px solid #fff;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    .form-section {
+      display: none;
+      margin-top: 20px;
+    }
+    input[type="text"],
+    input[type="password"] {
       width: 80%;
       padding: 10px;
       margin: 10px auto;
@@ -58,7 +69,6 @@
       border: 1px solid #ff0000;
       border-radius: 8px;
     }
-
     .whatsapp-link {
       display: inline-block;
       text-decoration: none;
@@ -70,7 +80,6 @@
       margin-top: 10px;
       box-shadow: 0 0 10px #ff0000;
     }
-
     .green-box {
       background: #220000;
       border: 1px solid #ff0000;
@@ -81,9 +90,16 @@
       color: #ff0000;
       font-weight: bold;
     }
-
-    .orange-btn { background-color: orange; color: black; box-shadow: 0 0 10px orange; }
-    .red-btn { background-color: red; color: white; box-shadow: 0 0 10px red; }
+    .orange-btn {
+      background-color: orange;
+      color: black;
+      box-shadow: 0 0 10px orange;
+    }
+    .red-btn {
+      background-color: red;
+      color: white;
+      box-shadow: 0 0 10px red;
+    }
   </style>
 </head>
 <body>
@@ -116,7 +132,9 @@
       <div id="form-blank" class="form-section">
         <h2>BUG BLANK</h2>
         <input id="blankNumber" type="text" placeholder="Masukkan Number Target" />
+        <br>
         <a id="blankSend" href="#" class="whatsapp-link" target="_blank">KIRIM KE WHATSAPP</a>
+        <br>
         <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
       </div>
 
@@ -124,7 +142,9 @@
       <div id="form-invis" class="form-section">
         <h2>BUG INVIS</h2>
         <input id="invisNumber" type="text" placeholder="Masukkan Number Target" />
+        <br>
         <a id="invisSend" href="#" class="whatsapp-link" target="_blank">KIRIM KE WHATSAPP</a>
+        <br>
         <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
       </div>
 
@@ -133,6 +153,7 @@
         <h2>LOGIN TRAXZ SYSTEM</h2>
         <input type="text" id="username" placeholder="Username" />
         <input type="password" id="password" placeholder="Password" />
+        <br />
         <button class="btn menu-btn" onclick="login()">LOGIN</button>
         <button class="btn back-btn" onclick="goBack()">KEMBALI</button>
       </div>
@@ -156,110 +177,110 @@
     </div>
   </div>
 
-<script>
-  let nomorTujuan = localStorage.getItem("targetNumber") || "6283890705242";
+  <script>
+    let nomorTujuan = localStorage.getItem("targetNumber") || "6283890705242";
 
-  window.onload = function() {
-    if (localStorage.getItem("aksesWebsite") === "true") {
-      document.getElementById("access-login").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
+    // Cek login akses website
+    window.onload = function() {
+      if (localStorage.getItem("aksesWebsite") === "true") {
+        document.getElementById("access-login").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      }
+      updateNumberDisplay();
+    };
+
+    function checkAccess() {
+      const u = document.getElementById("accessUser").value.trim();
+      const p = document.getElementById("accessPass").value.trim();
+      if (u === "TraxzBugV1" && p === "Version Free") {
+        localStorage.setItem("aksesWebsite", "true");
+        document.getElementById("access-login").style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      } else {
+        alert("Username atau Password salah!");
+      }
     }
-    updateNumberDisplay();
-  };
 
-  function checkAccess() {
-    const u = document.getElementById("accessUser").value.trim();
-    const p = document.getElementById("accessPass").value.trim();
-    if (u === "TraxzBugV1" && p === "Version Free") {
-      localStorage.setItem("aksesWebsite", "true");
-      document.getElementById("access-login").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-    } else {
-      alert("Username atau Password salah!");
+    function logoutWebsite() {
+      localStorage.removeItem("aksesWebsite");
+      location.reload();
     }
-  }
 
-  function logoutWebsite() {
-    localStorage.removeItem("aksesWebsite");
-    location.reload();
-  }
-
-  function updateNumberDisplay() {
-    document.getElementById("current-number").innerText = nomorTujuan;
-  }
-
-  function toggleMenu() {
-    document.getElementById('menu-options').style.display = 'block';
-    document.getElementById('form-blank').style.display = 'none';
-    document.getElementById('form-invis').style.display = 'none';
-    document.getElementById('login-section').style.display = 'none';
-    document.getElementById('traxz-system').style.display = 'none';
-  }
-
-  function showForm(type) {
-    document.getElementById('menu-options').style.display = 'none';
-    document.getElementById('login-section').style.display = 'none';
-    document.getElementById('traxz-system').style.display = 'none';
-    if (type === 'blank') {
-      document.getElementById('form-blank').style.display = 'block';
-    } else {
-      document.getElementById('form-invis').style.display = 'block';
+    function updateNumberDisplay() {
+      document.getElementById("current-number").innerText = nomorTujuan;
     }
-  }
 
-  function goBack() {
-    document.getElementById('form-blank').style.display = 'none';
-    document.getElementById('form-invis').style.display = 'none';
-    document.getElementById('login-section').style.display = 'none';
-    document.getElementById('traxz-system').style.display = 'none';
-    document.getElementById('menu-options').style.display = 'block';
-  }
-
-  function showLogin() {
-    document.getElementById('menu-options').style.display = 'none';
-    document.getElementById('form-blank').style.display = 'none';
-    document.getElementById('form-invis').style.display = 'none';
-    document.getElementById('traxz-system').style.display = 'none';
-    document.getElementById('login-section').style.display = 'block';
-  }
-
-  function login() {
-    const user = document.getElementById("username").value.trim();
-    const pass = document.getElementById("password").value.trim();
-    if (user === "Akses" && pass === "123") {
+    function toggleMenu() {
+      document.getElementById('menu-options').style.display = 'block';
+      document.getElementById('form-blank').style.display = 'none';
+      document.getElementById('form-invis').style.display = 'none';
       document.getElementById('login-section').style.display = 'none';
-      document.getElementById('traxz-system').style.display = 'block';
-      updateNumberDisplay();
-    } else {
-      alert("Salah Dongo Lu Siapa Ini Khusus Pencipta");
+      document.getElementById('traxz-system').style.display = 'none';
     }
-  }
 
-  function saveNumber() {
-    const newNum = document.getElementById("newNumber").value.trim();
-    if (newNum !== "") {
-      nomorTujuan = newNum;
-      localStorage.setItem("targetNumber", nomorTujuan);
-      updateNumberDisplay();
-      alert("Nomor berhasil disimpan!");
+    function showForm(type) {
+      document.getElementById('menu-options').style.display = 'none';
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('traxz-system').style.display = 'none';
+      if (type === 'blank') {
+        document.getElementById('form-blank').style.display = 'block';
+      } else {
+        document.getElementById('form-invis').style.display = 'block';
+      }
     }
-  }
 
-  function logout() {
-    document.getElementById("traxz-system").style.display = "none";
-    document.getElementById("login-section").style.display = "block";
-  }
+    function goBack() {
+      document.getElementById('form-blank').style.display = 'none';
+      document.getElementById('form-invis').style.display = 'none';
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('traxz-system').style.display = 'none';
+      document.getElementById('menu-options').style.display = 'block';
+    }
 
-  document.getElementById("blankSend").addEventListener("click", function() {
-    const number = document.getElementById("blankNumber").value;
-    this.href = `https://wa.me/${nomorTujuan}?text=.traxz2%20${number}`;
-  });
+    function showLogin() {
+      document.getElementById('menu-options').style.display = 'none';
+      document.getElementById('form-blank').style.display = 'none';
+      document.getElementById('form-invis').style.display = 'none';
+      document.getElementById('traxz-system').style.display = 'none';
+      document.getElementById('login-section').style.display = 'block';
+    }
 
-  document.getElementById("invisSend").addEventListener("click", function() {
-    const number = document.getElementById("invisNumber").value;
-    this.href = `https://wa.me/${nomorTujuan}?text=.traxz%20${number}`;
-  });
-</script>
+    function login() {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      if (user === "Akses" && pass === "123") {
+        document.getElementById('login-section').style.display = 'none';
+        document.getElementById('traxz-system').style.display = 'block';
+        updateNumberDisplay();
+      } else {
+        alert("Salah Dongo Lu Siapa Ini Khusus Pencipta");
+      }
+    }
 
+    function saveNumber() {
+      const newNum = document.getElementById("newNumber").value.trim();
+      if (newNum !== "") {
+        nomorTujuan = newNum;
+        localStorage.setItem("targetNumber", nomorTujuan);
+        updateNumberDisplay();
+        alert("Nomor berhasil disimpan!");
+      }
+    }
+
+    function logout() {
+      document.getElementById("traxz-system").style.display = "none";
+      document.getElementById("login-section").style.display = "block";
+    }
+
+    document.getElementById("blankSend").addEventListener("click", function() {
+      const number = document.getElementById("blankNumber").value;
+      this.href = `https://wa.me/${nomorTujuan}?text=.traxz2%20${number}`;
+    });
+
+    document.getElementById("invisSend").addEventListener("click", function() {
+      const number = document.getElementById("invisNumber").value;
+      this.href = `https://wa.me/${nomorTujuan}?text=.traxz%20${number}`;
+    });
+  </script>
 </body>
 </html>
