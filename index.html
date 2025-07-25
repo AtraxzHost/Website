@@ -162,13 +162,13 @@
       <div id="traxz-system" class="form-section">
         <h2>TRAXZ SYSTEM AKSES</h2>
         <div>Number WhatsApp Saat Ini:</div>
-        <div class="green-box" id="current-number">6283890705242</div>
+        <div class="green-box" id="current-number">6283187880500</div>
         <input type="text" id="newNumber" placeholder="Masukkan Number WhatsApp Baru" />
         <button class="btn orange-btn" onclick="saveNumber()">SIMPAN NUMBER</button>
         <button class="btn red-btn" onclick="logout()">LOGOUT</button>
       </div>
 
-      <button class="btn red-btn" onclick="logoutWebsite()">LOGOUT WEBSITE</button>
+      <button class="btn red-btn" onclick="logoutWebsite()">LOGOUT AKUN</button>
 
       <div class="footer">
         © 2025 TRAXZ CRASHER<br>
@@ -178,7 +178,7 @@
   </div>
 
   <script>
-    let nomorTujuan = localStorage.getItem("targetNumber") || "6283890705242";
+    let nomorTujuan = localStorage.getItem("targetNumber") || "683187880500";
 
     // Cek login akses website
     window.onload = function() {
@@ -192,7 +192,7 @@
     function checkAccess() {
       const u = document.getElementById("accessUser").value.trim();
       const p = document.getElementById("accessPass").value.trim();
-      if (u === "TraxzBugV1" && p === "Version Free") {
+      if (u === "Vinn" && p === "123") {
         localStorage.setItem("aksesWebsite", "true");
         document.getElementById("access-login").style.display = "none";
         document.getElementById("main-content").style.display = "block";
