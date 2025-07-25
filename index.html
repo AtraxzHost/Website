@@ -8,7 +8,8 @@
     body {
       margin: 0;
       font-family: 'Courier New', monospace;
-      background: linear-gradient(to bottom, #000000, #220000);
+      background: url('traxz-logo.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #ff0000;
       text-align: center;
     }
@@ -100,7 +101,15 @@
       color: white;
       box-shadow: 0 0 10px red;
     }
-  </style>
+  
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+    </style>
 </head>
 <body>
 
@@ -123,11 +132,11 @@
       <button class="btn menu-btn" onclick="toggleMenu()">MENU</button>
 
       <div id="menu-options" style="display:none;">
-  <button class="btn bug-btn" onclick="showForm('blank')">BUG BLANK</button>
-  <button class="btn bug-btn" onclick="showForm('invis')">BUG INVIS</button>
-  <button class="btn menu-btn" onclick="showLogin()">TRAXZ SYSTEM</button>
-  <a href="https://wa.me/6283187880500" target="_blank" class="btn menu-btn">Contact Owner</a>
-</div>
+        <button class="btn bug-btn" onclick="showForm('blank')">BUG BLANK</button>
+        <button class="btn bug-btn" onclick="showForm('invis')">BUG INVIS</button>
+        <button class="btn menu-btn" onclick="showLogin()">TRAXZ SYSTEM</button>
+        <a href="https://wa.me/6283187880500" target="_blank" class="btn menu-btn">Contact Owner</a>
+      </div>
 
       <!-- BUG BLANK -->
       <div id="form-blank" class="form-section">
